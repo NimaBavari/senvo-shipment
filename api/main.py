@@ -45,5 +45,5 @@ def get_shipments() -> Tuple[Response, int]:
         logger.error("Fetch error on %s %s" % (request.method, request.endpoint))
         return jsonify({"error": "Fetch error", "details": str(e)}), 500
 
-    logger.error("Shipments fetched successfully on %s %s" % (request.method, request.endpoint))
+    logger.info("Shipments fetched successfully on %s %s" % (request.method, request.endpoint))
     return jsonify([dict(row) for row in results]), 200
